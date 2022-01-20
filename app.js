@@ -112,7 +112,8 @@ var todaysTaskView = {
         })(i), false);
 
         ListItems[i].getElementsByTagName('span')[0].addEventListener('click', (function(k){
-          return function() {
+          return function(event) {
+            event.stopPropagation();  
             taskController.deleteTask(ListItems[k].getAttributeNode('data-content').value);
           }
         })(i), false);
